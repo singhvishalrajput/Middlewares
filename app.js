@@ -66,10 +66,24 @@ app.get("/random", (req,res)=>{
     res.send("this is a random page.")
 })
 
-//404  Middleware: Handles 404 errors for undefined routes
-app.use((req, res)=>{
-    res.status(404).send("Page not found !")
+app.get("/err", (req, res)=>{
+    abcd = abcd;
 })
+
+app.use((err, req, res, next)=>{
+    console.log("------ERROR------");
+    next(err);
+})
+
+app.use((err, req, res, next)=>{
+    console.log("-------ERROR2-------");
+    next(err);
+})
+
+// //404  Middleware: Handles 404 errors for undefined routes
+// app.use((req, res)=>{
+//     res.status(404).send("Page not found !")
+// })
 
 
 // Starts the server and listens on port 8080
