@@ -1,5 +1,4 @@
 
-```markdown
 # Express Middleware Exploration
 
 This project demonstrates the use of middlewares in an Express.js application. It includes various examples of custom and built-in middlewares that log requests, handle routes, and enforce access control.
@@ -30,10 +29,12 @@ This Express.js application showcases the following:
 
 ## How to Run
 
+To run this project, follow these steps:
+
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   ```
+   git clone <repository-url>
+
 2. Install the dependencies:
    ```bash
    npm install
@@ -58,5 +59,5 @@ This project is licensed under the MIT License. Feel free to use and modify it a
 ---
 
 Happy coding! 😊
-```
+
 
