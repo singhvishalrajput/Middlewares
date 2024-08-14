@@ -1,5 +1,6 @@
 const express = require("express") // Importing the Express library
 const app = express()  // Creating an Express application
+const ExpressError = require("./ExpressError");
 
 // Middleware 1: Logs a message before processing any request
 
@@ -30,7 +31,7 @@ const checkToken = (req, res, next)=>{
         next();
     }
     else{
-        throw new Error("ACESS DENIED.")
+        throw new ExpressError(401,"ACESS DENIED.")
     }
 }
 
@@ -71,14 +72,11 @@ app.get("/err", (req, res)=>{
 })
 
 app.use((err, req, res, next)=>{
-    console.log("------ERROR------");
-    next(err);
+    let {status=500, message="Some Error Occured"} = err;
+    res.status(status).send(message);
 })
 
-app.use((err, req, res, next)=>{
-    console.log("-------ERROR2-------");
-    next(err);
-})
+
 
 // //404  Middleware: Handles 404 errors for undefined routes
 // app.use((req, res)=>{
